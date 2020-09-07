@@ -7,9 +7,9 @@ class Conta_corente :
         layout = [
 
             [sg.Text('Nome'),sg.Input(size=(20,0),key='nome')],
-            [sg.Text('saldo'),sg.Input(size=(20,0),key='saldo'),sg.Radio('saldo 0','saldozero',key='saldo_zero')],
-            [sg.Text('Depositar'),sg.Input(size=(20,0),key='depositar_valor'),sg.Radio('depositar 0','depositarzero',key='depositar_zero')],
-            [sg.Text('Sacar'),sg.Input(size=(20,0),key='sacado'),sg.Radio('sacar 0','sacarzero',key='sacar_zero')],
+            [sg.Text('saldo'),sg.Input(size=(20,0),key='saldo'),sg.Checkbox('saldo 0','saldozero',key='saldo_zero')],
+            [sg.Text('Depositar'),sg.Input(size=(20,0),key='depositar_valor'),sg.Checkbox('depositar 0','depositarzero',key='depositar_zero')],
+            [sg.Text('Sacar'),sg.Input(size=(20,0),key='sacado'),sg.Checkbox('sacar 0','sacarzero',key='sacar_zero')],
             [sg.Button('Enviar Dados')],
             [sg.Output(size=(50,30),font=12)]
         ]
