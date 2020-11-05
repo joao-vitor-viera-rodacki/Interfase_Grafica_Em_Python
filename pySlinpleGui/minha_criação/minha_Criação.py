@@ -25,7 +25,9 @@ class Conta_corente :
             #extraindo dos da tela
             self.button,self.values = self.janela.Read()
                 
-          
+
+            if self.values == sg.WIN_CLOSED:
+                break
 
             if self.values['saldo_zero'] :
                 self.values['saldo'] = 0
