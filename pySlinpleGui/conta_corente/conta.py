@@ -1,9 +1,13 @@
 import pygame as game
 from PySimpleGUI import PySimpleGUI as sg
+
+
 game.init()
 
 game.mixer.music.load('./musica.mp3')
 game.mixer.music.play(-1)
+
+som_dinheiro = game.mixer.Sound('./coin.mp3')
 
 class Janela_login:
     def __init__(self):
@@ -42,7 +46,7 @@ class Conta_corente:
             [sg.Text(f'your money current {self.money_current}')],
             [sg.Text('Depositar'),sg.Input(key='depositado',size=(20,0))],
             [sg.Text('Sacar : '),sg.Input(key='sacar',size=(20,1))],
-            [sg.Button('Validar')]
+            [sg.Button('Validar')],
         ]
 
         self.window = sg.Window('Conta_Conrente').layout(self.layout)
@@ -60,7 +64,7 @@ class Conta_corente:
             [sg.Text(f'your money current {self.money_current}')],
             [sg.Text('Depositar'),sg.Input(key='depositado',size=(20,0))],
             [sg.Text('Sacar : '),sg.Input(key='sacar',size=(20,1))],
-            [sg.Button('Validar')]
+            [sg.Button('Validar')],
             ]
             self.window = sg.Window('Conta_Conrente').layout(self.layout)
             self.button , self.values = self.window.Read()
@@ -79,6 +83,7 @@ class Conta_corente:
                 self.values['depositado'] = 0
 
             else:
+                som_dinheiro.play()
                 depositado = float(self.values['depositado'])
                 
                 self.depositar(depositado)
