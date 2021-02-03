@@ -2,42 +2,17 @@ from random import randint
 import PySimpleGUI as sg
 
 import tela_partida
+import jogador
 
 
-DEFAULT_ATK =  {
-    'Ataque Especial': 300,
-    'Ataque Ariscado': 200,
-    'Ataque Magico De Gelo': 100
-}
+
+class Tela  : 
+ 
+    def __init__(self,player):
 
 
-class Jogador :
-    def __init__(self , nome):
-        
-        self.level = 6
-        self.xp = 0
-        self.dano  = (self.level // 2) * 10
-        self.usu_dano_max = self.dano + 10
-        self.usu_dano_min = self.dano
-
-        self.habilidades = DEFAULT_ATK
-       
-        self.botões_habilidades = { '1' : 'Ataque Ariscado',
-                                   '2' : 'Ataque Magico De Gelo',
-                                   '3' : 'Ataque Especial'}
-
-        self.pontos_de_habilidades = 10
-        self.hp = (self.level // 2) * 500
-        self.nome = nome
-        self.contagem_de_atake_especial = 2
-
-
-class Tela  :
-
-    
-    def __init__(self):
         layout = [
-            [sg.T(f'Seja bem vindo ao meu jogo -- {self.nome} --')],
+            [sg.T(f'Seja bem vindo ao meu jogo -- {player.nome} --')],
             [sg.Radio('Enter the match','entrar',key='entrar_1')],
             [sg.Radio('Enter the player status','entrar',key='entrar_2')],
             [sg.Radio('Enter the evolution tree','entrar',key='entrar_3')],
@@ -55,8 +30,8 @@ class Tela  :
         
         sg.Window.close(self.janela_menu)
         
-        janela_partida = tela_partida.Tela_partida()
-        janela_partida.atualiza_partida()
+        janela_partida = tela_partida.Tela_partida(player)
+        janela_partida.atualiza_partida(player)
 
     def tela_statusJogador(self):
         pass
@@ -80,10 +55,10 @@ class Tela  :
             if values['entrar_3']:
                 self.tela_habilidades()
             
+player = jogador.Jogador('joão')
+tela = Tela(player)
             
 
-jogo = Tela()
-jogo.tela_menu()
 
 
 

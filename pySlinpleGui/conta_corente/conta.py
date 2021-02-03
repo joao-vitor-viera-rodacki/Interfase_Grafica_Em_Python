@@ -73,7 +73,7 @@ class Conta_corente:
             if self.button == sg.WINDOW_CLOSED:
                 break
             self.validar()
-                
+            
 
     def validar(self):
         if self.button == 'Validar':
