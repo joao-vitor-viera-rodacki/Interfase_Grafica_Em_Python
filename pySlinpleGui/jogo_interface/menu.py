@@ -8,11 +8,11 @@ import jogador
 
 class Tela  : 
  
-    def __init__(self,player):
+    def __init__(self,player1,player2):
 
 
         layout = [
-            [sg.T(f'Seja bem vindo ao meu jogo -- {player.nome} --')],
+            [sg.T(f'Seja bem vindo ao meu jogo ')],
             [sg.Radio('Enter the match','entrar',key='entrar_1')],
             [sg.Radio('Enter the player status','entrar',key='entrar_2')],
             [sg.Radio('Enter the evolution tree','entrar',key='entrar_3')],
@@ -30,9 +30,8 @@ class Tela  :
         
         sg.Window.close(self.janela_menu)
         
-        janela_partida = tela_partida.Tela_partida(player)
-        janela_partida.atualiza_partida(player)
-
+        janela_partida = tela_partida.Tela_partida(player1 ,player2)
+        
     def tela_statusJogador(self):
         pass
     
@@ -55,8 +54,10 @@ class Tela  :
             if values['entrar_3']:
                 self.tela_habilidades()
             
-player = jogador.Jogador('joão')
-tela = Tela(player)
+player1 = jogador.Jogador('joão')
+player2 = jogador.Jogador('lucas')
+
+tela = Tela(player1 ,player2)
             
 
 
