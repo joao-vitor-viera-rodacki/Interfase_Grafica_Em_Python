@@ -1,6 +1,6 @@
 from random import randint
 import PySimpleGUI as sg
-
+# estou importando PySempleGui e vou chamar ele de sg
 import tela_partida
 import jogador
 
@@ -29,8 +29,8 @@ class Tela  :
     def tela_partida(self):
         
         sg.Window.close(self.janela_menu)
-        
-        janela_partida = tela_partida.Tela_partida(player1 ,player2)
+         
+        tela_partida.Tela_partida(player1 ,player2)
         
     def tela_statusJogador(self):
         pass
